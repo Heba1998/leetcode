@@ -508,3 +508,24 @@ return s;
 }
 console.log('24',reverseString(["h","e","b","a","1"]));
 
+// Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1
+function firstUniqChar(s) {
+    let obj={};
+    for (let i = 0; i < s.length; i++) {
+        let key=s[i];
+      if (obj[key]==undefined) {
+        obj[key]=1;
+      }else{
+          obj[key]++;
+      }
+    }
+    for (let j = 0; j < s.length; j++) {
+        let key = s[j];
+        if (obj[key]==1) {
+            return j;
+        }
+        
+    }
+    return -1;
+}
+console.log('25', firstUniqChar("aabb"));

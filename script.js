@@ -302,8 +302,6 @@ console.log('15',findDisappearedNumbers([4,3,2,7,8,2,3,1]));
 
 
 
-
-
 // You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
 // On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day.
 // Find and return the maximum profit you can achieve.
@@ -529,3 +527,85 @@ function firstUniqChar(s) {
     return -1;
 }
 console.log('25', firstUniqChar("aabb"));
+
+
+
+// Given an integer n, return a string array answer (1-indexed) where:
+// answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+// answer[i] == "Fizz" if i is divisible by 3.
+// answer[i] == "Buzz" if i is divisible by 5.
+// answer[i] == i (as a string) if none of the above conditions are true.
+function fizzBuzz(n) {
+    let arr=[];
+    for (let i = 1; i <= n; i++) {
+     if (i%15 == 0 ) {
+         arr.push("FizzBuzz");
+     }else if (i%5 == 0) {
+        arr.push("Buzz");
+     }else if (i%3 == 0) {
+        arr.push("Fizz");
+     }else{
+         arr.push(i.toString())
+     }
+    }
+    return arr;
+}
+console.log('26',fizzBuzz(3));
+
+
+
+// Given an integer n, return the number of prime numbers that are strictly less than n.
+function countPrimes(n) {
+    let nums = [];
+    let primeCount = 0;
+    for(let i =0; i < n; i++){
+        nums[i] = true;
+    }
+    for(let i=2; i * i < n; i++){
+        if (nums[i] == true){
+            for(let j = 2; j* i <n;j++){
+                nums[j* i] = false;
+            }
+        }
+    }
+    for (let i = 2; i < n; i++){
+        if (nums[i] === true){
+            primeCount++;
+        }
+    }
+    return primeCount;
+}
+console.log('27',countPrimes(2));
+
+function countPrimes(n) {
+    if(n <= 2) return 0;
+    function isPrime(num) {
+        for(let i = 3; i <= Math.sqrt(num); i+=2) {
+            if(num % i === 0) return false;
+        }
+        return true;
+    }
+    let count = 1;
+    
+    for(let i = 3; i < n; i += 2) {
+        if(isPrime(i)) count++;
+    }
+    return count;
+}
+console.log('27-2 ',countPrimes(2));
+
+
+// Given an integer n, return true if it is a power of three. Otherwise, return false.
+// An integer n is a power of three, if there exists an integer x such that n == 3^x
+
+function isPowerOfThree(n) {
+    while(n!==1){
+        if(n < 3) return false
+        if(n%3 !== 0) return false
+        n = n/3
+    }
+    return true
+}
+console.log('28', isPowerOfThree(9))
+
+

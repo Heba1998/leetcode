@@ -609,3 +609,16 @@ function isPowerOfThree(n) {
 console.log('28', isPowerOfThree(9))
 
 
+// A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+// Given a string s, return true if it is a palindrome, or false otherwise.
+function isPalindrome(s) {
+    s = s.replace(/\W+/g, "").toLowerCase();
+    let j= s.length-1;
+    let i = 0
+    while (i < j) {
+        if (s[i] !== s[j]) return false;
+        i++; j--;
+    }
+    return true;
+}
+console.log('29', isPalindrome("hycyh"))

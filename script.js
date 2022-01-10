@@ -622,3 +622,29 @@ function isPalindrome(s) {
     return true;
 }
 console.log('29', isPalindrome("hycyh"))
+
+
+function countPrimes3(n) {
+    var primes = [];
+    
+    for (var i = 0; i < n; i++) {
+        primes[i] = true;
+    }
+    
+    primes[0] = false;
+    primes[1] = false;
+    
+    for (var i = 2; i < Math.sqrt(n); i++) {
+        for (let j = 2; i * j < n; j++) {
+            primes[i * j] = false;
+        }
+    }
+    
+    var count = 0;
+    for (var i = 0; i < primes.length; i++) {
+        if (primes[i]) 
+            count ++;
+    }
+    return count;
+}
+console.log(isprime(10));

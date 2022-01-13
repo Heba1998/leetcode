@@ -647,4 +647,28 @@ function countPrimes3(n) {
     }
     return count;
 }
-console.log(isprime(10));
+console.log('30', countPrimes(10));
+
+
+function validator(expression) {
+    let count= 0
+    for (let i = 0; i < expression.length; i++){
+        if (expression[i] == '('){
+            count++}
+        else if (expression[i] == ')'){
+            if (count == 0){
+                return false
+            }
+            else{
+                count--
+            }
+        }
+    }
+    if (count == 0){
+        return true
+    }else{
+        return false
+    }
+    
+}
+console.log('32', validator('()()'))
